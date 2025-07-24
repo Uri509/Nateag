@@ -2,22 +2,16 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Mail, CheckCircle } from "lucide-react";
-import { useToast } from "../hooks/use-toast";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !name) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in both name and email fields.",
-        variant: "destructive",
-      });
+      alert("Please fill in both name and email fields.");
       return;
     }
 
@@ -25,10 +19,7 @@ const Newsletter = () => {
     
     // Simulate API call
     setTimeout(() => {
-      toast({
-        title: "Successfully Subscribed!",
-        description: "Thank you for subscribing to our newsletter. You'll receive business insights directly to your inbox.",
-      });
+      alert("Successfully subscribed! Thank you for subscribing to our newsletter.");
       setEmail("");
       setName("");
       setIsSubmitting(false);
