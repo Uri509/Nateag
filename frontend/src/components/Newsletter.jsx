@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Mail, CheckCircle } from "lucide-react";
+import apiService from "../services/api";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -17,13 +18,22 @@ const Newsletter = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      alert("Successfully subscribed! Thank you for subscribing to our newsletter.");
+    try {
+      const response = await apiService.subscribeToNewsletter({
+        name,
+        email,
+        source: "website"
+      });
+      
+      alert(response.message || "Successfully subscribed! Thank you for subscribing to our newsletter.");
       setEmail("");
       setName("");
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      alert("There was an error subscribing to the newsletter. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
