@@ -5,7 +5,6 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
-import { useToast } from "../hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +16,6 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -31,11 +29,7 @@ const Contact = () => {
     
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      });
+      alert("Please fill in all required fields.");
       return;
     }
 
@@ -43,10 +37,7 @@ const Contact = () => {
     
     // Simulate API call
     setTimeout(() => {
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-      });
+      alert("Message Sent Successfully! Thank you for contacting us. We'll get back to you within 24 hours.");
       
       // Reset form
       setFormData({
