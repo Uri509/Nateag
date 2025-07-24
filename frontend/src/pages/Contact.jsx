@@ -35,9 +35,9 @@ const Contact = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      alert("Message Sent Successfully! Thank you for contacting us. We'll get back to you within 24 hours.");
+    try {
+      const response = await apiService.submitContactForm(formData);
+      alert(response.message || "Message Sent Successfully! Thank you for contacting us. We'll get back to you within 24 hours.");
       
       // Reset form
       setFormData({
@@ -48,9 +48,12 @@ const Contact = () => {
         service: "",
         message: ""
       });
-      
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      alert("There was an error sending your message. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const contactInfo = [
