@@ -5,6 +5,7 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import apiService from "../services/api";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
