@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { ArrowRight, Users, TrendingUp, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
-import { mockData } from "../data/mockData";
+import apiService from "../services/api";
 
 const iconMap = {
   consulting: Users,
@@ -18,6 +18,50 @@ const colorMap = {
 };
 
 const ServicesOverview = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const servicesData = await apiService.getServices();
+        setServices(servicesData);
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="w-16 h-16 bg-gray-200 rounded-full animate-pulse mx-auto mb-4"></div>
+            <div className="h-8 bg-gray-200 rounded animate-pulse mb-4 max-w-md mx-auto"></div>
+            <div className="h-4 bg-gray-200 rounded animate-pulse max-w-2xl mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white rounded-lg shadow-lg p-6">
+                <div className="w-16 h-16 bg-gray-200 rounded-xl animate-pulse mb-4"></div>
+                <div className="h-6 bg-gray-200 rounded animate-pulse mb-4"></div>
+                <div className="space-y-2">
+                  <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,9 +76,9 @@ const ServicesOverview = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {mockData.services.map((service) => {
-            const IconComponent = iconMap[service.icon];
-            const gradientClass = colorMap[service.color];
+          {services.map((service) => {
+            const IconComponent = iconMap[service.icon] || Users;
+            const gradientClass = colorMap[service.color] || colorMap.purple;
             
             return (
               <Card key={service.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
