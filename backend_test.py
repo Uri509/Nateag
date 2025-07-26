@@ -582,20 +582,24 @@ class BackendTester:
         print(f"Backend URL: {self.base_url}")
         print("=" * 80)
         
-        try:
-            await self.test_health_endpoints()
-            await self.test_services_api()
-            await self.test_testimonials_api()
-            await self.test_contact_api()
-            await self.test_newsletter_api()
-            await self.test_blog_api()
-            await self.test_stats_api()
-            await self.test_error_handling()
-            await self.cleanup_test_data()
-            
-        except Exception as e:
-            print(f"❌ Test execution error: {str(e)}")
-            self.log_test_result("Test Execution", False, f"Error: {str(e)}")
+        test_functions = [
+            ("Health Endpoints", self.test_health_endpoints),
+            ("Services API", self.test_services_api),
+            ("Testimonials API", self.test_testimonials_api),
+            ("Contact API", self.test_contact_api),
+            ("Newsletter API", self.test_newsletter_api),
+            ("Blog API", self.test_blog_api),
+            ("Statistics API", self.test_stats_api),
+            ("Error Handling", self.test_error_handling),
+            ("Cleanup", self.cleanup_test_data)
+        ]
+        
+        for test_name, test_func in test_functions:
+            try:
+                await test_func()
+            except Exception as e:
+                print(f"❌ Error in {test_name}: {str(e)}")
+                self.log_test_result(f"{test_name} Execution", False, f"Error: {str(e)}")
         
         # Print summary
         self.print_test_summary()
