@@ -178,7 +178,10 @@ class BackendTester:
         )
         
         if testimonials_exist:
-            testimonial_id = result['data'][0]['id']
+            # Get testimonial ID from the first call, not the featured call
+            all_testimonials_result = await self.make_request('GET', '/testimonials/')
+            if all_testimonials_result['success'] and len(all_testimonials_result['data']) > 0:
+                testimonial_id = all_testimonials_result['data'][0]['id']
             
             # Test GET single testimonial
             result = await self.make_request('GET', f'/testimonials/{testimonial_id}')
