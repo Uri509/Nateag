@@ -33,7 +33,12 @@ async def get_blog_posts(
     posts_data = await posts_cursor.to_list(length=per_page)
     
     # Convert to Pydantic models to handle ObjectId serialization
-    posts = [BlogPost(**post).dict() for post in posts_data]
+    posts = []
+    for post_data in posts_data:
+        # Remove MongoDB's _id field if present
+        if '_id' in post_data:
+            del post_data['_id']
+        posts.append(post_data)
     
     # Get total count
     total = await blog_collection.count_documents(query)
