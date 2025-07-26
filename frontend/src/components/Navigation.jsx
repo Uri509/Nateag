@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import NAGLogo from "./NAGLogo";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,16 +34,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">N</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                NATEAG
-              </span>
-              <span className="text-sm text-gray-600">ENTERPRISES</span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <NAGLogo height="40" className="hover:scale-105 transition-transform duration-300" />
           </Link>
 
           {/* Desktop Navigation */}
