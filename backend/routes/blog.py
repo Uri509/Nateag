@@ -56,6 +56,10 @@ async def get_blog_post(post_id: str):
     post = await blog_collection.find_one({"id": post_id})
     if not post:
         raise HTTPException(status_code=404, detail="Blog post not found")
+    
+    # Remove MongoDB's _id field if present
+    if '_id' in post:
+        del post['_id']
     return BlogPost(**post)
 
 @router.get("/slug/{slug}", response_model=BlogPost)
