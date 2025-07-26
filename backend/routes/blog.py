@@ -78,7 +78,8 @@ async def get_blog_post_by_slug(slug: str):
 async def create_blog_post(post_data: BlogPostCreate):
     """Create a new blog post"""
     post = BlogPost(**post_data.dict())
-    await blog_collection.insert_one(post.dict())
+    post_dict = post.dict()
+    await blog_collection.insert_one(post_dict)
     return post
 
 @router.put("/{post_id}", response_model=BlogPost)
