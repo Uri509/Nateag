@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from "lucide-react";
+import NAGLogo from "./NAGLogo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -48,16 +49,8 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1 space-y-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">N</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  NATEAG
-                </span>
-                <span className="text-sm text-gray-400">ENTERPRISES</span>
-              </div>
+            <div className="flex items-center">
+              <NAGLogo height="50" className="filter brightness-0 invert" />
             </div>
             
             <p className="text-gray-300 leading-relaxed">
