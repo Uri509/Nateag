@@ -30,7 +30,10 @@ async def get_blog_posts(
     
     # Get posts
     posts_cursor = blog_collection.find(query).sort("date", -1).skip(skip).limit(per_page)
-    posts = await posts_cursor.to_list(length=per_page)
+    posts_data = await posts_cursor.to_list(length=per_page)
+    
+    # Convert to Pydantic models to handle ObjectId serialization
+    posts = [BlogPost(**post).dict() for post in posts_data]
     
     # Get total count
     total = await blog_collection.count_documents(query)
