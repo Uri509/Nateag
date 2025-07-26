@@ -10,6 +10,10 @@ async def get_business_stats():
     stats = await stats_collection.find_one({})
     if not stats:
         raise HTTPException(status_code=404, detail="Business statistics not found")
+    
+    # Remove MongoDB's _id field if present
+    if '_id' in stats:
+        del stats['_id']
     return BusinessStats(**stats)
 
 @router.put("/", response_model=BusinessStats)
@@ -35,6 +39,10 @@ async def update_business_stats(stats_data: dict):
 async def get_stats_summary():
     """Get a summary of all statistics across the platform"""
     business_stats = await stats_collection.find_one({})
+    
+    # Remove MongoDB's _id field if present
+    if business_stats and '_id' in business_stats:
+        del business_stats['_id']
     
     # Get additional stats from other collections
     from database import (
