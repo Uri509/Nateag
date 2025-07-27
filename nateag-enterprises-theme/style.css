@@ -1,15 +1,21 @@
 /*
 Theme Name: NATEAG Enterprises
-Description: Professional business theme for NATEAG Enterprises - Empowering entrepreneurs through comprehensive consulting, marketing, and logistics services. Based on the design of danajamesmwangi.com, fully customized for NATEAG Enterprises with modern gradients, animations, and responsive design.
+Theme URI: https://nateagenterprises.com
+Description: Professional business theme for NATEAG Enterprises - Empowering entrepreneurs through comprehensive consulting, marketing, and logistics services. Features modern gradients, animations, and responsive design with custom post types for services and testimonials.
 Author: NATEAG Enterprises
+Author URI: https://nateagenterprises.com
 Version: 1.0.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: nateag-enterprises
-Tags: business, consulting, corporate, responsive, modern, gradient, purple, blue, professional
+Tags: business, consulting, corporate, responsive, modern, purple, blue, professional, custom-post-types
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4
+Network: false
+
+NATEAG Enterprises WordPress Theme, Copyright 2024 NATEAG Enterprises
+NATEAG Enterprises is distributed under the terms of the GNU GPL
 */
 
 /* ==========================================================================
