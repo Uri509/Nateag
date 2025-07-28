@@ -18,7 +18,19 @@
                         <?php esc_html_e('Your Business Together', 'nateag-enterprises'); ?>
                     </h1>
                     
-                    <p><?php esc_html_e('Ready to take your business to the next level? Our team of experts is here to provide you with comprehensive solutions tailored to your unique needs. Get in touch today for a free consultation.', 'nateag-enterprises'); ?></p>
+                    <div class="page-content">
+                        <?php 
+                        if (have_posts()) :
+                            while (have_posts()) : the_post();
+                                if (get_the_content()) {
+                                    the_content();
+                                } else {
+                                    echo '<p>' . esc_html__('Ready to take your business to the next level? Our team of experts is here to provide you with comprehensive solutions tailored to your unique needs. Get in touch today for a free consultation.', 'nateag-enterprises') . '</p>';
+                                }
+                            endwhile;
+                        endif;
+                        ?>
+                    </div>
                     
                     <!-- Contact Features -->
                     <div class="key-points">
