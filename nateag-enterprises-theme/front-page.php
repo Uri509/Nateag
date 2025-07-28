@@ -5,18 +5,34 @@
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge">
-                    <span class="badge-icon">✓</span>
-                    <?php esc_html_e('2+ Years of Business Excellence', 'nateag-enterprises'); ?>
+                <div class="hero-content-editable">
+                    <?php 
+                    if (have_posts()) :
+                        while (have_posts()) : the_post();
+                            if (get_the_content()) {
+                                echo '<div class="page-content">';
+                                the_content();
+                                echo '</div>';
+                            } else {
+                                // Default hero content
+                                ?>
+                                <div class="hero-badge">
+                                    <span class="badge-icon">🚀</span>
+                                    <?php esc_html_e('Empowering Entrepreneurs', 'nateag-enterprises'); ?>
+                                </div>
+                                
+                                <h1>
+                                    <?php esc_html_e('Transform Your Business with', 'nateag-enterprises'); ?>
+                                    <span class="gradient-text"><?php esc_html_e('NATEAG Enterprises', 'nateag-enterprises'); ?></span>
+                                </h1>
+                                
+                                <p><?php esc_html_e('Comprehensive consulting, marketing, and logistics solutions designed to drive sustainable growth and empower entrepreneurs in today\'s competitive business landscape.', 'nateag-enterprises'); ?></p>
+                                <?php
+                            }
+                        endwhile;
+                    endif;
+                    ?>
                 </div>
-                
-                <h1>
-                    <?php esc_html_e('Empowering', 'nateag-enterprises'); ?>
-                    <span class="gradient-text"><?php esc_html_e('Entrepreneurs', 'nateag-enterprises'); ?></span>
-                    <?php esc_html_e('Through Comprehensive Business Solutions', 'nateag-enterprises'); ?>
-                </h1>
-                
-                <p><?php esc_html_e('NATEAG Enterprises provides comprehensive consulting, marketing, and logistics services designed to support both new and established entrepreneurs in today\'s evolving business landscape.', 'nateag-enterprises'); ?></p>
                 
                 <!-- Key Points -->
                 <div class="key-points">
