@@ -94,7 +94,15 @@
             <div class="container">
                 <div class="service-content">
                     <div class="content-main">
-                        <?php the_content(); ?>
+                        <?php 
+                        if (get_the_content()) {
+                            the_content();
+                        } else {
+                            echo '<h2>' . esc_html__('About This Service', 'nateag-enterprises') . '</h2>';
+                            echo '<p>' . esc_html__('This comprehensive service is designed to address your specific business needs with expert guidance and proven methodologies.', 'nateag-enterprises') . '</p>';
+                            echo '<p>' . esc_html__('Our team of professionals will work closely with you to develop and implement solutions that drive measurable results and sustainable growth.', 'nateag-enterprises') . '</p>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
