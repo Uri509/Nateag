@@ -18,7 +18,13 @@
                         </h1>
                         
                         <div class="service-excerpt">
-                            <?php the_excerpt(); ?>
+                            <?php 
+                            if (get_the_excerpt()) {
+                                the_excerpt();
+                            } else {
+                                echo '<p>' . esc_html__('Discover how our expert service can transform your business operations and drive sustainable growth.', 'nateag-enterprises') . '</p>';
+                            }
+                            ?>
                         </div>
                         
                         <!-- Service Features -->
