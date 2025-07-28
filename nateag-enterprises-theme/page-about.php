@@ -17,7 +17,19 @@
                         <span class="gradient-text"><?php esc_html_e('Gaetan Junior Jean-Francois', 'nateag-enterprises'); ?></span>
                     </h1>
                     
-                    <p><?php esc_html_e('A visionary Haitian entrepreneur based in Boston, Gaetan leads NATEAG Enterprises with a mission to drive economic development and empower communities through sustainable business ventures in fisheries, agriculture, and beyond.', 'nateag-enterprises'); ?></p>
+                    <div class="page-content">
+                        <?php 
+                        if (have_posts()) :
+                            while (have_posts()) : the_post();
+                                if (get_the_content()) {
+                                    the_content();
+                                } else {
+                                    echo '<p>' . esc_html__('A visionary Haitian entrepreneur based in Boston, Gaetan leads NATEAG Enterprises with a mission to drive economic development and empower communities through sustainable business ventures in fisheries, agriculture, and beyond.', 'nateag-enterprises') . '</p>';
+                                }
+                            endwhile;
+                        endif;
+                        ?>
+                    </div>
                     
                     <!-- Key Achievements -->
                     <div class="key-points">
