@@ -1,0 +1,313 @@
+/*
+Editor Styles for NATEAG Enterprises Theme
+Makes the WordPress editor match the frontend styling
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Base Editor Styles */
+.editor-styles-wrapper {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #374151;
+    max-width: 1200px;
+}
+
+/* Headings */
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.editor-styles-wrapper h1 {
+    font-size: 3rem;
+}
+
+.editor-styles-wrapper h2 {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.editor-styles-wrapper h3 {
+    font-size: 1.5rem;
+}
+
+.editor-styles-wrapper h4 {
+    font-size: 1.25rem;
+}
+
+/* Paragraphs */
+.editor-styles-wrapper p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Lists */
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.editor-styles-wrapper li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+.editor-styles-wrapper a {
+    color: #9333ea;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.editor-styles-wrapper a:hover {
+    color: #7c3aed;
+}
+
+/* Blockquotes */
+.editor-styles-wrapper blockquote,
+.wp-block-quote {
+    border-left: 4px solid #9333ea;
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    background: rgba(147, 51, 234, 0.05);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-style: italic;
+    color: #374151;
+}
+
+.editor-styles-wrapper blockquote p,
+.wp-block-quote p {
+    margin-bottom: 0;
+}
+
+.wp-block-quote__citation {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-style: normal;
+}
+
+/* Code */
+.editor-styles-wrapper code {
+    background: #f3f4f6;
+    color: #d63384;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+}
+
+.editor-styles-wrapper pre {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.editor-styles-wrapper pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+/* Images */
+.editor-styles-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wp-block-image {
+    margin: 2rem 0;
+}
+
+/* Buttons */
+.wp-block-button__link {
+    background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%) !important;
+    color: white !important;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.wp-block-button__link:hover {
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+}
+
+/* Color Classes */
+.has-primary-purple-color {
+    color: #9333ea !important;
+}
+
+.has-primary-purple-background-color {
+    background-color: #9333ea !important;
+}
+
+.has-primary-blue-color {
+    color: #3b82f6 !important;
+}
+
+.has-primary-blue-background-color {
+    background-color: #3b82f6 !important;
+}
+
+.has-dark-gray-color {
+    color: #111827 !important;
+}
+
+.has-dark-gray-background-color {
+    background-color: #111827 !important;
+}
+
+.has-medium-gray-color {
+    color: #6b7280 !important;
+}
+
+.has-medium-gray-background-color {
+    background-color: #6b7280 !important;
+}
+
+.has-light-gray-color {
+    color: #f9fafb !important;
+}
+
+.has-light-gray-background-color {
+    background-color: #f9fafb !important;
+}
+
+/* Font Size Classes */
+.has-small-font-size {
+    font-size: 14px !important;
+}
+
+.has-regular-font-size {
+    font-size: 16px !important;
+}
+
+.has-large-font-size {
+    font-size: 18px !important;
+}
+
+.has-extra-large-font-size {
+    font-size: 24px !important;
+}
+
+.has-huge-font-size {
+    font-size: 32px !important;
+}
+
+/* Wide and Full Width */
+.alignwide {
+    margin-left: -5rem;
+    margin-right: -5rem;
+}
+
+.alignfull {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: auto;
+    max-width: 1000%;
+}
+
+/* Tables */
+.editor-styles-wrapper table {
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    width: 100%;
+}
+
+.editor-styles-wrapper table th,
+.editor-styles-wrapper table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.editor-styles-wrapper table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Separator */
+.wp-block-separator {
+    border: none;
+    border-top: 2px solid #e5e7eb;
+    margin: 3rem auto;
+    width: 100px;
+}
+
+.wp-block-separator.is-style-wide {
+    width: 100%;
+}
+
+/* Cover Block */
+.wp-block-cover {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Group Block */
+.wp-block-group {
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.wp-block-group.has-background {
+    padding: 2rem;
+}
+
+/* Media Text */
+.wp-block-media-text {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Columns */
+.wp-block-columns {
+    margin: 2rem 0;
+}
+
+.wp-block-column {
+    padding: 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .editor-styles-wrapper {
+        font-size: 16px;
+        padding: 1rem;
+    }
+    
+    .editor-styles-wrapper h1 {
+        font-size: 2rem;
+    }
+    
+    .editor-styles-wrapper h2 {
+        font-size: 1.5rem;
+    }
+    
+    .alignwide {
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+}
