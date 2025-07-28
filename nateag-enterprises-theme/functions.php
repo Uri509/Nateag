@@ -9,6 +9,80 @@ function nateag_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('custom-logo');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
+    
+    // Add editor styles support
+    add_theme_support('editor-styles');
+    add_editor_style('editor-style.css');
+    
+    // Add support for wide and full width blocks
+    add_theme_support('align-wide');
+    
+    // Add support for responsive embedded content
+    add_theme_support('responsive-embeds');
+    
+    // Add custom color palette for block editor
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name'  => __('Primary Purple', 'nateag-enterprises'),
+            'slug'  => 'primary-purple',
+            'color' => '#9333ea',
+        ),
+        array(
+            'name'  => __('Primary Blue', 'nateag-enterprises'),
+            'slug'  => 'primary-blue',
+            'color' => '#3b82f6',
+        ),
+        array(
+            'name'  => __('Dark Gray', 'nateag-enterprises'),
+            'slug'  => 'dark-gray',
+            'color' => '#111827',
+        ),
+        array(
+            'name'  => __('Medium Gray', 'nateag-enterprises'),
+            'slug'  => 'medium-gray',
+            'color' => '#6b7280',
+        ),
+        array(
+            'name'  => __('Light Gray', 'nateag-enterprises'),
+            'slug'  => 'light-gray',
+            'color' => '#f9fafb',
+        ),
+    ));
+    
+    // Add custom font sizes
+    add_theme_support('editor-font-sizes', array(
+        array(
+            'name' => __('Small', 'nateag-enterprises'),
+            'size' => 14,
+            'slug' => 'small'
+        ),
+        array(
+            'name' => __('Regular', 'nateag-enterprises'),
+            'size' => 16,
+            'slug' => 'regular'
+        ),
+        array(
+            'name' => __('Large', 'nateag-enterprises'),
+            'size' => 18,
+            'slug' => 'large'
+        ),
+        array(
+            'name' => __('Extra Large', 'nateag-enterprises'),
+            'size' => 24,
+            'slug' => 'extra-large'
+        ),
+        array(
+            'name' => __('Huge', 'nateag-enterprises'),
+            'size' => 32,
+            'slug' => 'huge'
+        ),
+    ));
+    
+    // Set content width
+    global $content_width;
+    if (!isset($content_width)) {
+        $content_width = 1200;
+    }
 
     // Register navigation menus
     register_nav_menus(array(
