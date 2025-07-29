@@ -35,9 +35,6 @@
                     'fallback_cb'    => false,
                 ));
                 ?>
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="cta-button">
-                    <?php esc_html_e('Get Started', 'nateag-enterprises'); ?>
-                </a>
             </nav>
 
             <!-- Mobile menu toggle -->
