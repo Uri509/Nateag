@@ -1,5 +1,11 @@
 # Content Editing Guide for NATEAG Enterprises Theme
 
+## Recent Updates
+- ✅ Removed "Get Started" button from header navigation
+- ✅ Enhanced all template files with `the_content()` support
+- ✅ Added custom content support for archive pages
+- ✅ Improved blog page content editing capabilities
+
 ## How to Edit Pages with WordPress Editor
 
 ### Homepage (Front Page)
