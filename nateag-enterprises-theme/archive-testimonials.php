@@ -17,7 +17,26 @@
                         <span class="gradient-text"><?php esc_html_e('Clients Say', 'nateag-enterprises'); ?></span>
                     </h1>
                     
-                    <p><?php esc_html_e('Discover how NATEAG Enterprises has helped entrepreneurs and businesses achieve remarkable growth through our comprehensive consulting, marketing, and logistics solutions.', 'nateag-enterprises'); ?></p>
+                    <div class="page-content">
+                        <?php 
+                        // Check if Testimonials archive page has custom content
+                        $testimonials_page = get_post_type_archive_link('testimonials');
+                        if ($testimonials_page) {
+                            // Try to get page content if set as a page
+                            $page_id = get_option('testimonials_archive_page');
+                            if ($page_id) {
+                                $page = get_post($page_id);
+                                if ($page && $page->post_content) {
+                                    echo apply_filters('the_content', $page->post_content);
+                                } else {
+                                    echo '<p>' . esc_html__('Discover how NATEAG Enterprises has helped entrepreneurs and businesses achieve remarkable growth through our comprehensive consulting, marketing, and logistics solutions.', 'nateag-enterprises') . '</p>';
+                                }
+                            } else {
+                                echo '<p>' . esc_html__('Discover how NATEAG Enterprises has helped entrepreneurs and businesses achieve remarkable growth through our comprehensive consulting, marketing, and logistics solutions.', 'nateag-enterprises') . '</p>';
+                            }
+                        }
+                        ?>
+                    </div>
                     
                     <!-- Trust Indicators -->
                     <div class="stats-grid" style="margin-top: 3rem; max-width: none;">
