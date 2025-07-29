@@ -17,7 +17,26 @@
                         <span class="gradient-text"><?php esc_html_e('Business Solutions', 'nateag-enterprises'); ?></span>
                     </h1>
                     
-                    <p><?php esc_html_e('Comprehensive consulting, marketing, and logistics services designed to empower entrepreneurs and drive business growth in today\'s competitive landscape.', 'nateag-enterprises'); ?></p>
+                    <div class="page-content">
+                        <?php 
+                        // Check if Services archive page has custom content
+                        $services_page = get_post_type_archive_link('services');
+                        if ($services_page) {
+                            // Try to get page content if set as a page
+                            $page_id = get_option('services_archive_page');
+                            if ($page_id) {
+                                $page = get_post($page_id);
+                                if ($page && $page->post_content) {
+                                    echo apply_filters('the_content', $page->post_content);
+                                } else {
+                                    echo '<p>' . esc_html__('Comprehensive consulting, marketing, and logistics services designed to empower entrepreneurs and drive business growth in today\'s competitive landscape.', 'nateag-enterprises') . '</p>';
+                                }
+                            } else {
+                                echo '<p>' . esc_html__('Comprehensive consulting, marketing, and logistics services designed to empower entrepreneurs and drive business growth in today\'s competitive landscape.', 'nateag-enterprises') . '</p>';
+                            }
+                        }
+                        ?>
+                    </div>
                     
                     <!-- Quick Stats -->
                     <div class="stats-grid" style="margin-top: 3rem; max-width: none;">
